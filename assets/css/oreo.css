@@ -8,6 +8,7 @@
     --anchors-visited: #3300ee;
     --nav-anchors: var(--foreground);
     --nav-ancors-visited: var(--foreground);
+    --accent-color: #0000ee;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,5 +17,6 @@
         --foreground: #ffffff;
         --anchors: #eebb00;
         --anchors-visited: #c9770c;
-    }
+        --accent-color: #5a81e3;
+}
 }

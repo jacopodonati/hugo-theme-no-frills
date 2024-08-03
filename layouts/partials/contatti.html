@@ -1,10 +1,9 @@
 <p>Di seguito trovi alcuni link, nonché il mio CV in PDF da condividere tra gli amici:</p>
 <ul id="contatti">
 {{ range sort .Site.Data.contatti "weight" }}
-    {{ $icon := resources.Get (printf "icons/%s.png" .icon )}}
     <li>
         <a href="{{ .link }}">
-            <img src="{{ $icon.RelPermalink }}" alt="{{ .label }}">
+            <img src="/img/home/icons/{{ .icon }}.png" alt="{{ .label }}">
             <p>{{ .label }}</p>
         </a>
     </li>

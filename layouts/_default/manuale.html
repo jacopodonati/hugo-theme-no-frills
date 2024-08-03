@@ -1,0 +1,19 @@
+{{ define "main" }}
+{{ .Content }}
+<div id="tabellone">
+    {{ range .Pages }}
+    <div class="scheda" data-author="{{ .Params.author }}">
+        <div class="contenuto">{{ .Content }}</div>
+        <div class="firma">{{ .Params.author }}</div>
+    </div>
+    {{ end }}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabellone = document.querySelector('#tabellone');
+            for (var i = tabellone.children.length; i >= 0; i--) {
+                tabellone.appendChild(tabellone.children[Math.random() * i | 0]);
+            }
+        });
+    </script>
+</div>
+{{ end }}
