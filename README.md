@@ -5,4 +5,3 @@
 ## Installation
 
 ## Configuration
-# hugo-theme-no-frills

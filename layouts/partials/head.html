@@ -1,0 +1,10 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+<meta name="title" content="Jacopo Donati">
+<meta name="description" content="un zuglèn">
+<meta name="author" content="Jacopo Donati">
+<meta name="robots" content="index, follow">
+{{ partialCached "head/icons.html" . }}
+{{ partialCached "head/css.html" . }}
+{{ partialCached "head/js.html" . }}

@@ -1,0 +1,20 @@
+:root {
+    --foreground: #000000;
+    --background: #ffffff;
+    --font-stack-base: serif;
+    --font-stack-details: serif;
+    --font-size: 16px;
+    --anchors: #0000ee;
+    --anchors-visited: #3300ee;
+    --nav-anchors: var(--foreground);
+    --nav-ancors-visited: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #223762;
+        --foreground: #ffffff;
+        --anchors: #eebb00;
+        --anchors-visited: #c9770c;
+    }
+}

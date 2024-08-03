@@ -1,0 +1,14 @@
+<nav class="header">
+    <ul>
+    {{ $menu_pages := where .Site.Pages "Params.menu" true }}
+    {{ range sort $menu_pages ".Params.weight" }}
+        <li>
+        {{ if (not (isset .Params "menu_title")) }}
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ else }}
+            <a href="{{ .RelPermalink }}">{{ .Params.menu_title }}</a>
+        {{ end }}
+        </li>
+    {{ end }}
+    </ul>
+</nav>

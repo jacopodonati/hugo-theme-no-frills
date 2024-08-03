@@ -1,0 +1,23 @@
+baseURL = 'https://www.jacopodonati.it/'
+languageCode = 'it'
+title = 'No Frills'
+
+[[menus.main]]
+name = 'chi sono'
+pageRef = '/'
+weight = 10
+
+[[menus.main]]
+name = 'log'
+pageRef = '/log'
+weight = 20
+
+[[menus.main]]
+name = 'cose belle'
+pageRef = '/cose-belle'
+weight = 30
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.116.0"

@@ -1,0 +1,123 @@
+html {
+    font-size: var(--font-size);
+}
+
+body {
+    color: var(--foreground);
+    background-color: var(--background);
+    font-family: var(--font-stack-base);
+    line-height: 1.5;
+    margin: 1rem;
+    max-width: 768px;
+}
+
+header {
+    border-bottom: 1px solid var(--foreground);
+    margin-bottom: 1rem;
+    padding-bottom: 4rem;
+    font-family: var(--font-stack-details);
+    font-size: .9rem;
+    text-transform: lowercase;
+    display: flex;
+    align-items: center;
+}
+
+header a {
+    color: var(--nav-anchors);
+}
+
+header a:visited {
+    color: var(--nav-anchors-visited);
+}
+
+header .logo {
+    margin-right: 2rem;
+    padding: 0 2rem;
+}
+
+header .logo:active img {
+    mix-blend-mode: screen;
+    filter: invert();
+}
+
+header .logo img {
+    mix-blend-mode: multiply;
+    width: 5rem;
+}
+
+header ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 1rem;
+}
+
+/* header ul a:hover::before {
+    content: ".";
+    margin-right: 1rem;
+    left: -1rem;
+} */
+
+footer {
+    border-top: 1px solid var(--foreground);
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: .9rem;
+}
+
+a {
+    color: var(--anchors);
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--anchors-visited);
+}
+
+a:active {
+    background-color: var(--foreground);
+    color: var(--background) !important;
+}
+
+#scaffale {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+#contatti {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+}
+
+#contatti li {
+    text-align: center;
+    font-style: italic;
+    font-size: .9rem;
+}
+
+#contatti li img {
+    width: 64px;
+    image-rendering: pixelated;
+}
+
+#contatti li p {
+    margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    header .logo img {
+        filter: invert();
+        mix-blend-mode: screen;
+    }
+}
