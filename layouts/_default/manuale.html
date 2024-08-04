@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ .Content }}
 <p>
-    Seleziona l'autore:
+    <label for="selettore-autori">Seleziona l'autore:</label>
     {{ $autori := newScratch}}
     {{ range .Pages }}
     {{ $autori.Add "autori" (slice .Params.author) }}

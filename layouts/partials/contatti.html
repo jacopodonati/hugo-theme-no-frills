@@ -3,7 +3,7 @@
 {{ range sort .Site.Data.contatti "weight" }}
     <li>
         <a href="{{ .link }}">
-            <img src="/img/home/icons/{{ .icon }}.png" width="64" height="64" alt="{{ .label }}">
+            <img src="/img/home/icons/{{ .icon }}.png" width="64" height="64" alt="{{ .alt_label }}">
             <p>{{ .label }}</p>
         </a>
     </li>
