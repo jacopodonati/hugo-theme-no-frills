@@ -79,6 +79,7 @@ footer {
     display: flex;
     justify-content: space-between;
     font-size: .9rem;
+    clear: both;
 }
 
 a {
@@ -164,6 +165,38 @@ article footer {
 
 article time {
     float: right;
+}
+
+.libri #copertina {
+    float: left;
+    margin: 0 1rem 1rem 0;
+}
+
+.libri h1 {
+    margin: 0;
+}
+
+.libri #negozi {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.libri #negozi li {
+    display: inline;
+    margin-right: .4rem;
+}
+
+.libri #negozi li::before {
+    content: "[";
+}
+
+.libri #negozi li::after {
+    content: "]";
+}
+
+.metadata .isbn {
+    font-family: var(--font-stack-mono);
 }
 
 @media only screen and (max-width: 500px) {

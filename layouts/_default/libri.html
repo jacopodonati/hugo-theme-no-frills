@@ -5,22 +5,10 @@
     <div id="scaffale">
         {{ range . }}
         <div class="book">
-            {{- $cover := .Resources.GetMatch "cover.jpg" -}}
+            {{- $cover := .Resources.GetMatch "cover-dither.png" -}}
             {{- if $cover -}}
-            {{- $dither_opts := dict
-                "colors" (slice "000000" "ff0000" "00ff00" "0000ff" "ffff00" "ff00ff" "00ffff" "ffffff")
-                "method" "FloydSteinberg"
-                "strength" 0.85
-            -}}
-            {{- $dither := images.Dither $dither_opts -}}
-            {{- $base_mul := 2 -}}
-            {{- $base_width := (mul $base_mul (int .Params.width)) -}}
-            {{- $base_height := (div (mul $cover.Height $base_width) $cover.Width) -}}
-            {{- $x1 := $cover.Resize (printf "x%s q80 webp" (string (mul $base_width 1)))}}
-            {{- $x2 := $cover.Resize (printf "x%s q80 webp" (string (mul $base_width 2)))}}
-            {{- $x3 := $cover.Resize (printf "x%s q80 webp" (string (mul $base_width 3)))}}
             <a href="{{ .RelPermalink }}">
-                <img src="{{ $cover.RelPermalink }}" srcset="{{$x1.RelPermalink}} 1x, {{$x2.RelPermalink}} 2x, {{$x3.RelPermalink}} 3x" alt="Copertina di {{ .Title }}" class="copertina-libro">
+                <img src="{{ $cover.RelPermalink }}" alt="Copertina di {{ .Title }}" class="copertina-libro">
             </a>
             {{- end }}
         </div>
