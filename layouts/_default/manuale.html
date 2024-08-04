@@ -1,8 +1,21 @@
 {{ define "main" }}
 {{ .Content }}
-<div id="tabellone">
+<p>
+    Seleziona l'autore:
+    {{ $autori := newScratch}}
     {{ range .Pages }}
-    <div class="scheda" data-author="{{ .Params.author }}">
+    {{ $autori.Add "autori" (slice .Params.author) }}
+    {{ end }}
+    <select id="selettore-autore">
+        <option value="*">---</option>
+        {{ range $autori.Get "autori" | uniq | sort }}
+        <option value="{{ . | base64Encode }}">{{ . }}</option>
+        {{ end }}
+    </select>
+</p>
+<div id="tabellone" class="tabellone">
+    {{ range .Pages }}
+    <div class="scheda" data-autore="{{ .Params.author | base64Encode }}">
         <div class="contenuto">{{ .Content }}</div>
         <div class="firma">{{ .Params.author }}</div>
     </div>
@@ -13,6 +26,25 @@
             for (var i = tabellone.children.length; i >= 0; i--) {
                 tabellone.appendChild(tabellone.children[Math.random() * i | 0]);
             }
+            const selettore = document.querySelector('#selettore-autore');
+            selettore.addEventListener('change', () => {
+                if (selettore.value === '*') {
+                    const schede = tabellone.querySelectorAll('.scheda');
+                    schede.forEach(scheda => {
+                        scheda.style.display = 'block';
+                    });
+                } else {
+                    const schede = tabellone.querySelectorAll('.scheda');
+                    schede.forEach(scheda => {
+                        scheda.style.display = 'none';
+                    });
+                    const schedeAutore = tabellone.querySelectorAll(`[data-autore="${selettore.value}"]`);
+                    console.log(`[data-autore="${selettore.value}"]`)
+                    schedeAutore.forEach(scheda => {
+                        scheda.style.display = 'block';
+                    });
+                }
+            });
         });
     </script>
 </div>
