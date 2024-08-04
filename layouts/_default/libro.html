@@ -1,7 +1,7 @@
 {{ define "main" }}
     {{ $cover := .Resources.GetMatch "cover-dither-lg.png" }}
     {{ if $cover }}
-    <img src="{{ $cover.RelPermalink }}" alt="Copertina del libro" id="copertina">
+    <img src="{{ $cover.RelPermalink }}" widht="{{ $cover.Width }}" height="{{ $cover.Height }}" alt="Copertina del libro" id="copertina">
     {{ end }}
     <div class="info-testo">
         <h1>{{ .Title }}</h1>

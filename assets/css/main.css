@@ -53,7 +53,8 @@ header .logo:active img {
 
 header .logo img {
     mix-blend-mode: multiply;
-    width: 5rem;
+    width: 55%;
+    height: 55%;
 }
 
 header ul {

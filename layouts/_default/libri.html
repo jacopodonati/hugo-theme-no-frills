@@ -8,7 +8,7 @@
             {{- $cover := .Resources.GetMatch "cover-dither.png" -}}
             {{- if $cover -}}
             <a href="{{ .RelPermalink }}">
-                <img src="{{ $cover.RelPermalink }}" alt="Copertina di {{ .Title }}" class="copertina-libro">
+                <img src="{{ $cover.RelPermalink }}" widht="{{ $cover.Width }}" height="{{ $cover.Height }}" alt="Copertina di {{ .Title }}" class="copertina-libro">
             </a>
             {{- end }}
         </div>
