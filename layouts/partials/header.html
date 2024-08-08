@@ -9,7 +9,7 @@
     {{- $x1 := .Resize (printf "x%s q20 webp" (string (mul $base_width 1))) | images.Filter $dither -}}
     {{- $x2 := .Resize (printf "x%s q20 webp" (string (mul $base_width 2))) | images.Filter $dither -}}
     {{- $x3 := .Resize (printf "x%s q20 webp" (string (mul $base_width 3))) | images.Filter $dither -}}
-    <img src="{{ .RelPermalink }}" srcset="{{$x1.RelPermalink}} 1x, {{$x2.RelPermalink}} 2x, {{$x3.RelPermalink}} 3x" width="{{ .Width }}" height="{{ .Height }}" alt="jacopo donati">
+    <img class="logo" src="{{ .RelPermalink }}" srcset="{{$x1.RelPermalink}} 1x, {{$x2.RelPermalink}} 2x, {{$x3.RelPermalink}} 3x" width="{{ .Width }}" height="{{ .Height }}" alt="jacopo donati">
 {{ end }}
 </a>
 

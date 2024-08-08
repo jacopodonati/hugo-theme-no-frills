@@ -5,11 +5,13 @@
     --font-stack-details: serif;
     --font-stack-mono: monospace;
     --font-size: 16px;
+    --max-width: calc(var(--font-size) * 48);
     --anchors: #0000ee;
     --anchors-visited: #3300ee;
     --nav-anchors: var(--foreground);
     --nav-ancors-visited: var(--foreground);
     --accent-color: #0000ee;
+    --muted-color: #6a6a6a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,6 +20,7 @@
         --foreground: #ffffff;
         --anchors: #eebb00;
         --anchors-visited: #c9770c;
-        --accent-color: #5a81e3;
+        --accent-color: #e3c55a;
+        --muted-color: #b3cef5;
 }
 }

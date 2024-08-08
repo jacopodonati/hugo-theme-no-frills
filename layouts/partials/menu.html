@@ -1,14 +1,48 @@
 <nav class="header">
-    <ul>
-    {{ $menu_pages := where .Site.Pages "Params.menu" true }}
-    {{ range sort $menu_pages ".Params.weight" }}
+    {{ $scratch := newScratch }}
+    {{ $scratch.Set "path" (split .RelPermalink "/") }}
+    {{ $currentPage := .RelPermalink }}
+    <ul class="menu">
+        {{ range site.Sections }}
+        {{ if eq (index (split .RelPermalink "/") 1) (index ($scratch.Get "path") 1) }}
         <li>
-        {{ if (not (isset .Params "menu_title")) }}
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        {{ else }}
-            <a href="{{ .RelPermalink }}">{{ .Params.menu_title }}</a>
-        {{ end }}
+            <a href="{{ .RelPermalink }}" class="attiva">{{ .Title }}</a>
         </li>
-    {{ end }}
+        {{ else }}
+        <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+        {{ end }}
     </ul>
+    {{ if not .IsHome }}
+    {{ $level := sub (split .RelPermalink "/" | len) 2 }}
+    {{ if eq $level 1 }}
+    <ul class="menu">
+        {{ range .Pages }}
+        <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+    </ul>
+    {{ else }}
+    {{ $scratch.Set "parent" .Parent }}
+    {{ range seq (sub $level 2) }}
+    {{ $scratch.Set "parent" ($scratch.Get "parent").Parent }}
+    {{ end }}
+    <ul class="menu">
+        {{ range ($scratch.Get "parent").Pages }}
+        {{ if eq (index (split .RelPermalink "/") 2) (index ($scratch.Get "path") 2) }}
+        <li>
+            <a href="{{ .RelPermalink }}" class="attiva">{{ .Title }}</a>
+        </li>
+        {{ else }}
+        <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+        {{ end }}
+    </ul>
+    {{ end }}
+    {{ end }}
 </nav>
