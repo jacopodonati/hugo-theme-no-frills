@@ -97,10 +97,21 @@ main.galleria {
 footer {
     /* border-top: 1px solid var(--foreground); */
     margin-top: 1rem;
+    padding: 1rem 0;
     display: flex;
     justify-content: space-between;
     font-size: .9rem;
     clear: both;
+}
+
+footer p, footer ul {
+    margin: 0;
+}
+
+footer #selettore-lingue {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 
 a {
@@ -128,6 +139,15 @@ a:active {
     text-align: right;
 }
 
+.avvertenza {
+    font-family: var(--font-stack-warning);
+    font-size: .8rem;
+    background-color: var(--warning-background);
+    border: 1px solid var(--warning-border);
+    padding: 1rem 1.4rem;
+    margin: 2rem 0;
+}
+
 img#io {
     float: right;
     width: 200px;
@@ -140,17 +160,13 @@ img#io {
     font-size: .9rem;
 }
 
-.footnotes .footnotes-separator {
+.footnotes hr {
     max-width: 30%;
     margin-left: 0;
 }
 
-.footnotes .footnote-definition {
-    display: flex;
-    gap: .4rem;
-}
-
-.footnotes .footnote-definition p {
+.footnotes p {
+    font-size: .9rem;
     margin: 0;
 }
 

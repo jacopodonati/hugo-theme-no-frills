@@ -3,6 +3,7 @@
     --background: #ffffff;
     --font-stack-base: serif;
     --font-stack-details: serif;
+    --font-stack-warning: sans-serif;
     --font-stack-mono: monospace;
     --font-size: 16px;
     --max-width: calc(var(--font-size) * 48);
@@ -12,6 +13,8 @@
     --nav-ancors-visited: var(--foreground);
     --accent-color: #0000ee;
     --muted-color: #6a6a6a;
+    --warning-background: #fff9cd;
+    --warning-border: #a19126;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +25,7 @@
         --anchors-visited: #c9770c;
         --accent-color: #e3c55a;
         --muted-color: #b3cef5;
-}
+        --warning-background: #5c80b0;
+        --warning-border: #b4c2d5;
+    }
 }

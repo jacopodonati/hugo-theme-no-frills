@@ -1,8 +1,8 @@
 {{ define "main" }}
 {{ .Content }}
 <ul class="sottosezione">
-    {{ range .Pages }}
-    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>: {{ .Summary }}</li>
+    {{ range sort .Pages ".Params.weight" }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>: {{ .Summary | markdownify }}</li>
     {{ end }}
 </ul>
 {{ end }}
