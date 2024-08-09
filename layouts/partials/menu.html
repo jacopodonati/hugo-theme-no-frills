@@ -7,7 +7,6 @@
         {{ $scratch.Set "baseLevel" 2 }}
     {{ end }}
     {{ $baseLevel := int ($scratch.Get "baseLevel") }}
-    {{ $scratch.Set "baseLevel" (split .RelPermalink "/") }}
     {{ $currentPage := .RelPermalink }}
     <ul class="menu">
         {{ range sort site.Sections ".Params.weight" }}
@@ -22,7 +21,8 @@
         {{ end }}
         {{ end }}
     </ul>
-    {{ if not .IsHome }}
+{{ if not .IsHome }}
+    r{{split .RelPermalink "/"}}e{{split .RelPermalink "/" | len}}
     {{ $secondLevel := add $baseLevel 1 }}
     {{ $level := sub (split .RelPermalink "/" | len) $secondLevel }}
     {{ if eq $level 1 }}
@@ -33,13 +33,14 @@
         </li>
         {{ end }}
     </ul>
-    {{ else }}
+{{ else }}
     {{ $scratch.Set "parent" .Parent }}
     {{ range seq (sub $level $secondLevel) }}
-    {{ $scratch.Set "parent" ($scratch.Get "parent").Parent }}
+        {{ $scratch.Set "parent" ($scratch.Get "parent").Parent }}
     {{ end }}
+    {{ $scratch.Get "parent" }}
     <ul class="menu">
-        {{ range ($scratch.Get "parent").Pages }}
+    {{ range ($scratch.Get "parent").Pages }}
         {{ if eq (index (split .RelPermalink "/") $secondLevel) (index ($scratch.Get "path") $secondLevel) }}
         <li>
             <a href="{{ .RelPermalink }}" class="attiva">{{ .Title }}</a>
@@ -49,8 +50,8 @@
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         </li>
         {{ end }}
-        {{ end }}
+    {{ end }}
     </ul>
     {{ end }}
-    {{ end }}
+{{ end }}
 </nav>
