@@ -102,6 +102,7 @@ footer {
     justify-content: space-between;
     font-size: .9rem;
     clear: both;
+    gap: .8rem;
 }
 
 footer p, footer ul {
