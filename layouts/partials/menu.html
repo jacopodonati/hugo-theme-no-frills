@@ -24,31 +24,35 @@
 {{ if not .IsHome }}
     {{ $secondLevel := add $baseLevel 1 }}
     {{ $level := sub (split .RelPermalink "/" | len) $secondLevel }}
+    <!-- l{{$level}}
+    s{{$secondLevel}}
+    a{{(split .RelPermalink "/")}}
+    q{{(split .RelPermalink "/" | len)}} -->
     {{ if eq $level 1 }}
-    <ul class="menu">
-        {{ range sort .Pages ".Params.weight" }}
-        <li>
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </li>
+        <ul class="menu">
+            {{ range sort .Pages ".Params.weight" }}
+            <li>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </li>
+            {{ end }}
+        </ul>
+    {{ else }}
+        {{ $scratch.Set "parent" .Parent }}
+        {{ range seq (sub $level $secondLevel) }}
+            {{ $scratch.Set "parent" ($scratch.Get "parent").Parent }}
         {{ end }}
-    </ul>
-{{ else }}
-    {{ $scratch.Set "parent" .Parent }}
-    {{ range seq (sub $level $secondLevel) }}
-        {{ $scratch.Set "parent" ($scratch.Get "parent").Parent }}
-    {{ end }}
-    <ul class="menu">
-    {{ range sort ($scratch.Get "parent").Pages ".Params.weight" }}
-        {{ if eq (index (split .RelPermalink "/") $secondLevel) (index ($scratch.Get "path") $secondLevel) }}
-        <li>
-            <a href="{{ .RelPermalink }}" class="attiva">{{ .Title }}</a>
-        </li>
-        {{ else }}
-        <li>
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </li>
+        <ul class="menu">
+        {{ range sort ($scratch.Get "parent").Pages ".Params.weight" }}
+            {{ if eq (index (split .RelPermalink "/") $secondLevel) (index ($scratch.Get "path") $secondLevel) }}
+            <li>
+                <a href="{{ .RelPermalink }}" class="attiva">{{ .Title }}</a>
+            </li>
+            {{ else }}
+            <li>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </li>
+            {{ end }}
         {{ end }}
-    {{ end }}
     </ul>
     {{ end }}
 {{ end }}
