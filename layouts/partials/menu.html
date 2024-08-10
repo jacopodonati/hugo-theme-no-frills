@@ -22,7 +22,6 @@
         {{ end }}
     </ul>
 {{ if not .IsHome }}
-    r{{split .RelPermalink "/"}}e{{split .RelPermalink "/" | len}}
     {{ $secondLevel := add $baseLevel 1 }}
     {{ $level := sub (split .RelPermalink "/" | len) $secondLevel }}
     {{ if eq $level 1 }}
