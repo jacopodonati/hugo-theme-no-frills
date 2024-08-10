@@ -37,7 +37,6 @@
     {{ range seq (sub $level $secondLevel) }}
         {{ $scratch.Set "parent" ($scratch.Get "parent").Parent }}
     {{ end }}
-    {{ $scratch.Get "parent" }}
     <ul class="menu">
     {{ range ($scratch.Get "parent").Pages }}
         {{ if eq (index (split .RelPermalink "/") $secondLevel) (index ($scratch.Get "path") $secondLevel) }}
