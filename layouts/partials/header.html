@@ -1,4 +1,6 @@
-<a href="/" class="logo">
+{{ with .GetPage "/" }}
+<a href="{{ .RelPermalink }}" class="logo">
+{{ end }}
 {{ with resources.Get "img/logo.png" }}
     {{- $base_width := 80 -}}
     {{- $dither_opts := dict
