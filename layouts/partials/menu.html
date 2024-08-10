@@ -38,7 +38,7 @@
         {{ $scratch.Set "parent" ($scratch.Get "parent").Parent }}
     {{ end }}
     <ul class="menu">
-    {{ range ($scratch.Get "parent").Pages }}
+    {{ range sort ($scratch.Get "parent").Pages ".Params.weight" }}
         {{ if eq (index (split .RelPermalink "/") $secondLevel) (index ($scratch.Get "path") $secondLevel) }}
         <li>
             <a href="{{ .RelPermalink }}" class="attiva">{{ .Title }}</a>
