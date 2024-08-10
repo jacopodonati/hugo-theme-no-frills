@@ -80,13 +80,13 @@ header ul {
     grid-column-gap: 1rem; */
 }
 
-main {
+/* main {
     max-width: var(--max-width);
 }
 
 main.galleria {
     max-width: inherit;
-}
+} */
 
 /* header ul a:hover::before {
     content: ".";
@@ -162,7 +162,7 @@ img#io {
 }
 
 .footnotes hr {
-    max-width: 30%;
+    max-width: 14rem;
     margin-left: 0;
 }
 
