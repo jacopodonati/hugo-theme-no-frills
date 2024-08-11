@@ -17,7 +17,7 @@
     {{ range .Pages }}
     <div class="scheda" data-autore="{{ .Params.author | base64Encode }}">
         <div class="contenuto">{{ .Content }}</div>
-        <div class="firma">— {{ .Params.author }}</div>
+        <div class="firma">{{ .Params.author }}</div>
     </div>
     {{ end }}
     <script>
