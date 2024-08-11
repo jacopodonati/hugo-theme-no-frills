@@ -1,7 +1,7 @@
 {{ with .GetPage "/" }}
 <a href="{{ .RelPermalink }}" class="logo">
 {{ end }}
-{{ with resources.Get "img/logo.png" }}
+{{ with resources.Get "img/logo-posterizzato.png" }}
     {{- $base_width := 80 -}}
     {{- $dither_opts := dict
         "method" "Atkinson"
