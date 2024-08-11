@@ -13,9 +13,12 @@ body {
 }
 
 img {
+    max-width: 100%;
+}
+
+img.logo {
     image-rendering: pixelated;
     mix-blend-mode: multiply;
-    max-width: 100%;
 }
 
 header {
@@ -155,6 +158,7 @@ img#io {
     float: right;
     width: 200px;
     margin: 0 0 1rem 1rem;
+    image-rendering: pixelated;
     mix-blend-mode: multiply;
 }
 
@@ -302,7 +306,7 @@ article time {
 }
 
 @media (prefers-color-scheme: dark) {
-    img {
+    img#io, img.logo {
         mix-blend-mode: screen !important;
     }
 

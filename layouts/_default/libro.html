@@ -1,7 +1,13 @@
 {{ define "main" }}
-    {{ $cover := .Resources.GetMatch "cover-dither-lg.png" }}
-    {{ if $cover }}
-    <img src="{{ $cover.RelPermalink }}" widht="{{ $cover.Width }}" height="{{ $cover.Height }}" alt="Copertina del libro" id="copertina">
+    {{- $cover := .Resources.GetMatch "cover.jpg" -}}
+    {{- if $cover -}}
+        {{- $base_mul := 3 -}}
+        {{- $base_width := (mul $base_mul (int .Params.width)) -}}
+        {{- $base_height := (div (mul $cover.Height $base_width) $cover.Width) -}}
+        {{- $x1 := $cover.Resize (printf "x%d q40 webp drawing" (int (mul $base_width 1))) -}}
+        {{- $x2 := $cover.Resize (printf "x%d q40 webp drawing" (int (mul $base_width 2))) -}}
+        {{- $x3 := $cover.Resize (printf "x%d q40 webp drawing" (int (mul $base_width 3))) -}}
+        <img src="{{ $x1.RelPermalink }}" srcset="{{$x1.RelPermalink}} 1x, {{$x2.RelPermalink}} 2x, {{$x3.RelPermalink}} 3x" alt="Copertina di {{ .Title }}" id="copertina" width="{{ $x1.Width }}" height="{{ $x1.Height }}">
     {{ end }}
     <div class="info-testo">
         <h1>{{ .Title }}</h1>
