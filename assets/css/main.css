@@ -1,6 +1,7 @@
 html {
     font-size: var(--font-size);
     /* font: -apple-system-body; */
+    /* font: -apple-system-body; */
 }
 
 body {
@@ -133,6 +134,7 @@ a:active {
     font-size: 1.4rem;
     line-height: 1.4rem;
     margin-bottom: 4rem;
+    max-width: max-content;
 }
 
 .esergo p:last-child {
