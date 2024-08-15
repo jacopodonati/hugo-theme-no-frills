@@ -1,4 +1,4 @@
-<p>{{ .Site.Author.display_name }} &copy; {{ now.Year }}.</p>
+<hr class="nascosto">
 {{ if .Site.IsMultiLingual }}
 <ul id="selettore-lingue">
 {{ with .Translations }}
@@ -11,3 +11,4 @@
 </ul>
 {{ end }}
 <p>{{ T "ultimo_aggiornamento" }}: {{ .Page.Lastmod | time.Format ":date_long" }}</p>
+<p>{{ .Site.Author.display_name }} &copy; {{ now.Year }}.</p>
