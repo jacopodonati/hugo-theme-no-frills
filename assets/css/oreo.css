@@ -19,7 +19,7 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --background: #223762;
+        --background: #012b36;
         --foreground: #ffffff;
         --anchors: #eebb00;
         --anchors-visited: #c9770c;
