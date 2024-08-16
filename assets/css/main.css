@@ -321,11 +321,20 @@ article time {
     header .logo {
         padding: 0;
     }
+    
+    .esergo {
+        margin: 0 0 2rem 0;
+    }
 }
 
 @media only screen and (max-width: 350px) {
     img#io {
         float: none;
+        margin: 0;
+    }
+
+    .footnotes ol {
+        padding-left: 1rem;
     }
 }
 
