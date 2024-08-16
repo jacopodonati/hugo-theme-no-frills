@@ -2,9 +2,9 @@
   {{ .Content }}
   {{ with .Pages }}
     {{ if gt (len .) 0 }}
-    <div id="scaffale">
+    <ul id="scaffale">
         {{ range . }}
-        <div class="libro">
+        <li class="libro">
             {{- $cover := .Resources.GetMatch "cover.jpg" -}}
             {{- if $cover -}}
             {{- $base_mul := 1.4 -}}
@@ -14,12 +14,12 @@
             {{- $x2 := $cover.Resize (printf "x%d q40 webp drawing" (int (mul $base_width 2))) -}}
             {{- $x3 := $cover.Resize (printf "x%d q40 webp drawing" (int (mul $base_width 3))) -}}
             <a href="{{ .RelPermalink }}">
-                <img src="{{ $x1.RelPermalink }}" srcset="{{$x1.RelPermalink}} 1x, {{$x2.RelPermalink}} 2x, {{$x3.RelPermalink}} 3x" alt="Copertina di {{ .Title }}" class="copertina" width="{{ $x1.Width }}" height="{{ $x1.Height }}">
+                <img src="{{ $x1.RelPermalink }}" srcset="{{$x1.RelPermalink}} 1x, {{$x2.RelPermalink}} 2x, {{$x3.RelPermalink}} 3x" alt="{{ .Title }}" class="copertina" width="{{ $x1.Width }}" height="{{ $x1.Height }}">
             </a>
             {{- end }}
-        </div>
+        </li>
         {{ end }}
-    </div>
+    </ul>
     {{ end }}
     {{ end }}
 {{ end }}
