@@ -12,6 +12,7 @@
         <option value="{{ . | base64Encode }}">{{ . }}</option>
         {{ end }}
     </select>
+    <button id="reset" disabled>{{ T "reset" }}</button>
 </p>
 <div id="tabellone" class="tabellone">
     {{ range .Pages }}
@@ -23,19 +24,30 @@
     {{ end }}
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            function resetFilter() {
+                selettore.value = '*';
+                schede.forEach(scheda => {
+                    scheda.style.display = 'block';
+                });
+                resetButton.disabled = true;
+            }
+            const selettore = document.querySelector('#selettore-autore');
+            const resetButton = document.querySelector('#reset');
             const tabellone = document.querySelector('#tabellone');
+            const schede = tabellone.querySelectorAll('.scheda');
+
             for (var i = tabellone.children.length; i >= 0; i--) {
                 tabellone.appendChild(tabellone.children[Math.random() * i | 0]);
             }
-            const selettore = document.querySelector('#selettore-autore');
+
+            resetButton.addEventListener('click', () => {
+                resetFilter();
+            });
+
             selettore.addEventListener('change', () => {
                 if (selettore.value === '*') {
-                    const schede = tabellone.querySelectorAll('.scheda');
-                    schede.forEach(scheda => {
-                        scheda.style.display = 'block';
-                    });
+                    resetFilter();
                 } else {
-                    const schede = tabellone.querySelectorAll('.scheda');
                     schede.forEach(scheda => {
                         scheda.style.display = 'none';
                     });
@@ -44,6 +56,7 @@
                     schedeAutore.forEach(scheda => {
                         scheda.style.display = 'block';
                     });
+                    resetButton.disabled = false;
                 }
             });
         });
