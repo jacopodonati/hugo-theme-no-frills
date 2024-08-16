@@ -191,29 +191,6 @@ img#io {
     padding: 0;
 }
 
-#contatti {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    gap: 1.4rem;
-    flex-wrap: wrap;
-}
-
-#contatti li {
-    text-align: center;
-    font-style: italic;
-    font-size: .9rem;
-}
-
-#contatti li img {
-    width: 64px;
-}
-
-#contatti li p {
-    margin: 0;
-}
-
 #tabellone {
     display: grid;
     gap: 1rem;
