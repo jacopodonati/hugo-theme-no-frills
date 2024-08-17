@@ -7,3 +7,8 @@
 <meta name="robots" content="index, follow">
 {{ partialCached "head/icons.html" . }}
 {{ partialCached "head/css.html" . }}
+{{- with resources.Get "js/selettore-tema.js" }}
+{{- with . | minify }}
+<script src="{{ .RelPermalink }}"></script>
+{{- end }}
+{{- end }}

@@ -123,6 +123,10 @@ footer #selettore-lingue {
     list-style-type: none;
 }
 
+footer #selettore-lingue img {
+    image-rendering: pixelated;
+}
+
 a {
     color: var(--anchors);
     text-decoration: none;
@@ -199,9 +203,10 @@ img#io {
 
 .scheda {
     font-size: .9rem;
-    border: 1px solid var(--foreground);
+    border: 1px solid var(--shadow);
     padding: 1rem 2rem;
-    box-shadow: 6px 6px 0px var(--foreground);
+    box-shadow: 6px 6px 0px var(--shadow);
+    background-color: var(--background-content);
 }
 
 .scheda .firma {
@@ -304,6 +309,22 @@ article time {
     font-family: var(--font-stack-mono);
 }
 
+#selettore-tema {
+    display: flex;
+    padding-left: 0;
+    gap: .4rem;
+}
+
+#selettore-tema li {
+    list-style-type: none;
+    cursor: pointer;
+}
+
+#selettore-tema li img {
+    mix-blend-mode: multiply;
+    image-rendering: pixelated;
+}
+
 @media only screen and (max-width: 500px) {
     /* header {
         display: block;
@@ -346,11 +367,11 @@ article time {
 }
 
 @media (prefers-color-scheme: dark) {
-    img#io, img.logo {
+    img#io, img.logo, #selettore-tema li img {
         mix-blend-mode: screen !important;
     }
 
-    img.logo {
+    img.logo, #selettore-tema li img {
         filter: invert();
     }
 
