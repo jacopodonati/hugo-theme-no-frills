@@ -3,7 +3,7 @@
     --background: #f5f5f5;
     --background-content: #d4dbce;
     --shadow: #6c5793;
-    --font-stack-base: serif;
+    --font-stack-base: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
     --font-stack-details: serif;
     --font-stack-warning: -system-ui, sans-serif;
     --font-stack-mono: monospace;
