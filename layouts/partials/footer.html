@@ -10,7 +10,18 @@
 {{ end }}
 </ul>
 {{ end }}
-<p>{{ T "ultimo_aggiornamento" }}: {{ .Page.Lastmod | time.Format ":date_long" }}</p>
+{{ if eq .Page.Date .Page.Lastmod }}
+{{ with .Page.Date }}
+<p>{{ T "data_pubblicazione" }}: {{ . | time.Format ":date_long" }}</p>
+{{ end }}
+{{ else }}
+{{ with .Page.Date }}
+<p>{{ T "data_pubblicazione" }}: {{ . | time.Format ":date_long" }}</p>
+{{ end }}
+{{ with .Page.Lastmod }}
+<p>{{ T "ultimo_aggiornamento" }}: {{ . | time.Format ":date_long" }}</p>
+{{ end }}
+{{ end }}
 <p>{{ .Site.Author.display_name }} &copy; {{ now.Year }}.</p>
 <ul id="selettore-tema">
     <li data-tema="oreo"><img width="16" heigth="16" src="/img/tema/oreo.png" alt="Oreo"></li>
