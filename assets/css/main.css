@@ -195,6 +195,10 @@ img#io {
     padding: 0;
 }
 
+.libro .copertina {
+    mix-blend-mode: multiply;
+}
+
 #tabellone {
     display: grid;
     gap: 1rem;
@@ -367,7 +371,7 @@ article time {
 }
 
 @media (prefers-color-scheme: dark) {
-    img#io, img.logo, #selettore-tema li img {
+    img#io, img.logo, #selettore-tema li img, .libro .copertina {
         mix-blend-mode: screen !important;
     }
 

@@ -4,7 +4,7 @@
 {{ with .Translations }}
     {{ range . }}
         <li>
-            <a href="{{ .RelPermalink }}" hreflang="{{ .Language.LanguageCode }}"><img src="/img/lingue/{{ .Language.Lang }}.png" alt="{{ .Language.LanguageName }}"></a>
+            <a href="{{ .RelPermalink }}" hreflang="{{ .Language.LanguageCode }}"><img src="/img/lingue/{{ .Language.Lang }}.png" alt="{{ .Language.LanguageName }}" aria-label="{{ .Language.LanguageName }}"></a>
         </li>
     {{ end }}
 {{ end }}
@@ -24,7 +24,13 @@
 {{ end }}
 <p>{{ .Site.Author.display_name }} &copy; {{ now.Year }}.</p>
 <ul id="selettore-tema">
-    <li data-tema="oreo"><img width="16" heigth="16" src="/img/tema/oreo.png" alt="Oreo"></li>
-    <li data-tema="salem"><img width="16" heigth="16" src="/img/tema/salem.png" alt="Gatto nero"></li>
-    <li data-tema="vaporware"><img width="16" heigth="16" src="/img/tema/vapor.png" alt="Onda"></li>
+    <li>
+        <img data-tema="oreo" width="16" heigth="16" src="/img/tema/oreo.png" aria-label="Oreo" alt="Oreo" role="button" tabindex="0">
+    </li>
+    <li>
+        <img data-tema="salem" width="16" heigth="16" src="/img/tema/salem.png" aria-label="Gatto nero" alt="Gatto nero" tabindex="0" role="button">
+    </li>
+    <li>
+        <img width="16" heigth="16" src="/img/tema/vapor.png" aria-label="Onda" alt="Onda" tabindex="0" data-tema="vaporware" role="button">
+    </li>
 </ul>

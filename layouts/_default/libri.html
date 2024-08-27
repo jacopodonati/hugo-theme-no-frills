@@ -5,18 +5,11 @@
     <ul id="scaffale">
         {{ range . }}
         <li class="libro">
-            {{- $cover := .Resources.GetMatch "cover.jpg" -}}
-            {{- if $cover -}}
-            {{- $base_mul := 1.4 -}}
-            {{- $base_width := (mul $base_mul (int .Params.width)) -}}
-            {{- $base_height := (div (mul $cover.Height $base_width) $cover.Width) -}}
-            {{- $x1 := $cover.Resize (printf "x%d q40 webp drawing" (int (mul $base_width 1))) -}}
-            {{- $x2 := $cover.Resize (printf "x%d q40 webp drawing" (int (mul $base_width 2))) -}}
-            {{- $x3 := $cover.Resize (printf "x%d q40 webp drawing" (int (mul $base_width 3))) -}}
             <a href="{{ .RelPermalink }}">
-                <img src="{{ $x1.RelPermalink }}" srcset="{{$x1.RelPermalink}} 1x, {{$x2.RelPermalink}} 2x, {{$x3.RelPermalink}} 3x" alt="{{ .Title }}" class="copertina" width="{{ $x1.Width }}" height="{{ $x1.Height }}">
+{{- with .Resources.GetMatch "cover.png" -}}
+                <img src="{{ .RelPermalink }}" alt="{{ .Title }}" class="copertina" width="{{ .Width }}" height="{{ .Height }}">
+{{- end }}
             </a>
-            {{- end }}
         </li>
         {{ end }}
     </ul>
